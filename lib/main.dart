@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb; 
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:image_picker/image_picker.dart'; 
@@ -220,7 +221,7 @@ class ImagePreviewWidget extends StatelessWidget {
       return Image.network(xfile.path, fit: BoxFit.cover);
     } else {
       // Kalau di mobile nanti, kodenya akan sedikit beda (pakai Image.file)
-      return Container(child: const Text("Preview Mobile belum dibuat")); 
+      return Image.file(File(xfile.path), fit: BoxFit.cover);
     }
   }
 }
